@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+<div class="mx-auto" style="width: 250px;">
+	<div class="container-fluid">
+		<h1 class="ps-5 p-5">Errors</h1>
+	</div>
+</div>
+
+
+<!-- STICKY NAV FOR B1 -> B5 -->
+<!--{% url 'errors' %}#bay5Link ====== jumps to a specific HTML TAG ID.  [current url -- id name] (URL DISPATCHER)  -->
+<nav class="sticky-top navbar-light bg-light mx-auto" style="width: 400px;">
+	<div class="container-fluid">
+    	<a class="navbar-brand text-primary" href="{% url 'errors' %}#bay1Link">Bay 1</a>
+    	<a class="navbar-brand text-warning" href="{% url 'errors' %}#bay2Link">Bay 2</a>
+    	<a class="navbar-brand text-success" href="{% url 'errors' %}#bay3Link">Bay 3</a>
+    	<a class="navbar-brand text-info" href="{% url 'errors' %}#bay4Link">Bay 4</a>
+    	<a class="navbar-brand text-danger" href="{% url 'errors' %}#bay5Link">Bay 5</a>
+  	</div>
+</nav>
+<br>
+
+
+<!-- BAY 1 -->
+<hr>
+<div class="container-fluid m-5" id="bay1Link">
+	<h3 class="p-2 text-primary font-monospace">BAY 1</h3>
+    <div class="row">
+        {% for items in querysetBay1 %}
+            <div class="col-auto"> <!--  COL-AUTO CLASS solved my effin problem   -->
+                <div class="card border-primary mb-3">
+                    <div class="card-header">
+                        <b class="text-primary">{{ items.general_description_of_failure }}</b> --> ID: {{ items.id }}
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ items.title_of_error }}</h4>
+                        <p class="card-text"><pre>{{ items.fix_of_error }}</pre></p>   <!-- PRE tag gives a newline every 															shift enter on the textarea in index.html --> 
+                    </div>
+                    <div class="card-footer bg-transparent">
+					    {{ items.date_posted }}
+				  	</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<!-- BAY 2 -->
+<hr>
+<div class="container-fluid m-5" id="bay2Link">
+	<h3 class="p-2 text-warning font-monospace">BAY 2</h3>
+    <div class="row">
+        {% for items in querysetBay2 %}
+            <div class="col-auto"> <!--  COL-AUTO CLASS solved my effin problem   -->
+                <div class="card border-warning mb-3">
+                    <div class="card-header">
+                        <b class="text-warning">{{ items.general_description_of_failure }}</b> --> ID: {{ items.id }}
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ items.title_of_error }}</h4>
+                        <p class="card-text"><pre>{{ items.fix_of_error }}</pre></p>   <!-- PRE tag gives a newline every 															shift enter on the textarea in index.html --> 
+                    </div>
+                    <div class="card-footer bg-transparent">
+					    {{ items.date_posted }}
+				  	</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<!-- BAY 3 -->
+<hr>
+<div class="container-fluid m-5" id="bay3Link">
+	<h3 class="p-2 text-success font-monospace">BAY 3</h3>
+    <div class="row">
+        {% for items in querysetBay3 %}
+            <div class="col-auto"> <!--  COL-AUTO CLASS solved my effin problem   -->
+                <div class="card border-success mb-3">
+                    <div class="card-header">
+                        <b class="text-success">{{ items.general_description_of_failure }}</b> --> ID: {{ items.id }}
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ items.title_of_error }}</h4>
+                        <p class="card-text"><pre>{{ items.fix_of_error }}</pre></p>   <!-- PRE tag gives a newline every 															shift enter on the textarea in index.html --> 
+                    </div>
+                    <div class="card-footer bg-transparent">
+					    {{ items.date_posted }}
+				  	</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<!-- BAY 4 -->
+<hr>
+<div class="container-fluid m-5" id="bay4Link">
+	<h3 class="p-2 text-info font-monospace">BAY 4</h3>
+    <div class="row">
+        {% for items in querysetBay4 %}
+            <div class="col-auto"> <!--  COL-AUTO CLASS solved my effin problem   -->
+                <div class="card border-info mb-3">
+                    <div class="card-header">
+                        <b class="text-info">{{ items.general_description_of_failure }}</b> --> ID: {{ items.id }}
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ items.title_of_error }}</h4>
+                        <p class="card-text"><pre>{{ items.fix_of_error }}</pre></p>   <!-- PRE tag gives a newline every 															shift enter on the textarea in index.html --> 
+                    </div>
+                    <div class="card-footer bg-transparent">
+					    {{ items.date_posted }}
+				  	</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<!-- BAY 5 -->
+<hr>
+<div class="container-fluid m-5" id="bay5Link">
+	<h3 class="p-2 text-danger font-monospace">BAY 5</h3>
+    <div class="row">
+        {% for items in querysetBay5 %}
+            <div class="col-auto"> <!--  COL-AUTO CLASS solved my effin problem   -->
+                <div class="card border-danger mb-3">
+                    <div class="card-header">
+                        <b class="text-danger">{{ items.general_description_of_failure }}</b> --> ID: {{ items.id }}
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ items.title_of_error }}</h4>
+                        <p class="card-text"><pre>{{ items.fix_of_error }}</pre></p>   <!-- PRE tag gives a newline every 															shift enter on the textarea in index.html --> 
+                    </div>
+                    <div class="card-footer bg-transparent">
+					    {{ items.date_posted }}
+				  	</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<br>
+<br>
+
+
+<div class="footer bg-dark text-center text-lg-start text-light p-1">
+	<!-- Copyright -->
+	<div class="text-center p-3">
+	© 2022 Marc Dy
+	</div>
+	<!-- Copyright -->
+</div>
+
+
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

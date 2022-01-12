@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="mx-auto" style="width: 600px;" id="index-border">
+	<div class="container-fluid">
+		<h1 class="ps-5 p-5">Input Error</h1>
+		<hr>
+		<div class="mb-3" >
+			<form action="" method="post">
+				{% csrf_token %}
+
+				<label>Choose bay:</label>
+				<br>
+				{{form.bays}}
+				<br><br>
+
+				<label>Choose general location of error:</label>
+				<br>
+				{{form.general_description_of_failure}}
+				<br><br>
+
+				<label>Brief description of error:</label>
+				<br>
+				<label class="text-muted">Eg. Right stepper motor not moving.</label>
+				<br>
+				{{form.title_of_error}}
+				<br><br>
+
+				<label>Steps to fix the error:</label>
+				<br>
+				<label class="text-muted">*Press enter for a newline or return for mobile.</label>
+				<label class="text-muted">*Lists all the steps you did prior to fixing the error.</label>
+				<label class="text-muted">*Add asterisk(*) if a certain step fixed the error.</label>
+				{{form.fix_of_error}}
+				<br><br>
+
+				<input type="submit" value="Submit" class="btn btn-outline-primary btn-lg" style="width: 430px;">
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="footer bg-dark text-center text-lg-start text-light fixed-bottom p-1 fixed-bottom">
+	<!-- Copyright -->
+	<div class="text-center p-3">
+	© 2022 Marc Dy
+	</div>
+	<!-- Copyright -->
+</div>
+
+	
+	
+{% endblock content %}
