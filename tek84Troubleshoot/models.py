@@ -45,10 +45,9 @@ class InputError(models.Model):
 		('TOPHAT', 'Top Hat')
 	]
 
-	bays = models.CharField(max_length=10, choices=BAYS, default=BAY1)
+	bays = models.CharField(max_length=10, choices=BAYS)
 	general_description_of_failure = models.CharField(max_length=9, 
-												   choices=GENERAL_DESCRIPTION_OF_FAILURE, 
-												   default=BASES)
+												   choices=GENERAL_DESCRIPTION_OF_FAILURE)
 	title_of_error = models.CharField(max_length=100)
 	fix_of_error = models.TextField()
 	date_posted = models.DateTimeField(auto_now = True)
