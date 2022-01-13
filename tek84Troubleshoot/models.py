@@ -8,6 +8,7 @@ from django import forms
 
 class InputError(models.Model):
 
+	ELECTRICAL = 'Electrical'
 	BAY1 = 'B1'
 	BAY2 = 'B2'
 	BAY3 = 'B3'
@@ -15,6 +16,7 @@ class InputError(models.Model):
 	BAY5 = 'B5'
 
 	BAYS = [
+		('ELECTRICAL', 'Electrical'),
 		('BAY1', 'Bay1'),
 		('BAY2', 'Bay2'),
 		('BAY3', 'Bay3'),
@@ -23,6 +25,8 @@ class InputError(models.Model):
 	]
 
 
+	AC = 'AC'
+	CPU = 'CPU'
 	BASES = 'BS'
 	VERTICALS = 'VR'
 	CARM = 'CA'
@@ -31,6 +35,8 @@ class InputError(models.Model):
 	TOPHAT = 'TP'
 
 	GENERAL_DESCRIPTION_OF_FAILURE = [
+		('AC', 'AC'),
+		('CPU', 'CPU'),
 		('BASES', 'Bases'),
 		('VERTICALS', 'Vertical'),
 		('CARM', 'C-Arm'),
@@ -39,7 +45,7 @@ class InputError(models.Model):
 		('TOPHAT', 'Top Hat')
 	]
 
-	bays = models.CharField(max_length=9, choices=BAYS, default=BAY1)
+	bays = models.CharField(max_length=10, choices=BAYS, default=BAY1)
 	general_description_of_failure = models.CharField(max_length=9, 
 												   choices=GENERAL_DESCRIPTION_OF_FAILURE, 
 												   default=BASES)

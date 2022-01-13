@@ -25,7 +25,7 @@ def index(request):
 		if form.is_valid():
 			form.save()
 			messages.success(request, 'Success!')
-			return HttpResponseRedirect('')
+			return HttpResponseRedirect('/tek84Troubleshoot/errors')
 		else:
 			messages.error(request, 'Error!')
 			return HttpResponseRedirect('')
@@ -40,6 +40,7 @@ def index(request):
 
 def errors(request):
 
+	querysetBay0 = InputError.objects.all().filter(bays = 'ELECTRICAL').order_by('-date_posted')
 	querysetBay1 = InputError.objects.all().filter(bays = 'BAY1').order_by('-date_posted')
 	querysetBay2 = InputError.objects.all().filter(bays = 'BAY2').order_by('-date_posted')
 	querysetBay3 = InputError.objects.all().filter(bays = 'BAY3').order_by('-date_posted')
@@ -47,6 +48,7 @@ def errors(request):
 	querysetBay5 = InputError.objects.all().filter(bays = 'BAY5').order_by('-date_posted')
 
 	context = {
+		'querysetBay0': querysetBay0,
 		'querysetBay1': querysetBay1,
 		'querysetBay2': querysetBay2,
 		'querysetBay3': querysetBay3,
