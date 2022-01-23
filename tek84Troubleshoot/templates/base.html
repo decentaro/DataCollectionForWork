@@ -52,7 +52,15 @@
 				        				   {% if url_name == 'logout' %}invisible{% endif %}
 				        				   {% if url_name == 'signup' %}invisible{% endif %}" 
 				        	href="/tek84Troubleshoot/errors">Errors</a>
-						<div class="btn-group dropstart position-absolute top-0 end-0 m-4 
+
+				   <!-- WIP SEARCH BAR -->     	
+				        <form class="d-flex">
+				      		<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+					      	<button class="btn btn-outline-dark" type="submit">Search</button>
+					    </form>
+
+					 <!-- PROFILE BUTTON -->
+						<div class="btn-group dropstart position-absolute top-1 end-0 mt-1 mr-1 p-1  
 							{% if url_name == 'login' %}invisible{% endif %}
 							{% if url_name == 'logout' %}invisible{% endif %}
 							{% if url_name == 'signup' %}invisible{% endif %}">
