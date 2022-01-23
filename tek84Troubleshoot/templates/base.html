@@ -13,8 +13,6 @@
 
 
 
-
-
 <!doctype html>
 
 <html lang="en">
@@ -34,24 +32,43 @@
 <body>
 	<div class="mb-5">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		  <div class="container-fluid">
-		    <a class="navbar-brand" href="https://findtheinvisiblecow.com/">
-		    	<img src="{% static 'rounded_image.jpg' %}" alt="Data Collection Image" width="100" height="80">
-		    </a>
-		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-		      <span class="navbar-toggler-icon"></span>
-		    </button>
-		    {% with request.resolver_match.url_name as url_name %}  {# Shows which page is active on navigation links #}
-		    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-		      <div class="navbar-nav">
-		        <a class="nav-link {% if url_name == 'index' %}active{% endif %}"    
-		        	href="/tek84Troubleshoot/index">Input Errors</a>
-		        <a class="nav-link {% if url_name == 'errors' %}active{% endif %}" 
-		        	href="/tek84Troubleshoot/errors">Errors</a>
-		      </div>
-		    </div>
-		    {% endwith %}
-		  </div>
+		  	<div class="container-fluid">
+			    <a class="navbar-brand" href="{% url 'login' %}">
+			    	<img src="{% static 'image.jpg' %}" class="rounded-2" width="100" height="80">
+			    </a>
+			    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			      <span class="navbar-toggler-icon"></span>
+			    </button>
+			    {% with request.resolver_match.url_name as url_name %}  {# Shows which page is active on navigation links #}
+			    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			    	<div class="navbar-nav">
+				        <a class="nav-link {% if url_name == 'index' %}active{% endif %} 
+				        				   {% if url_name == 'login' %}invisible{% endif %}
+				        				   {% if url_name == 'logout' %}invisible{% endif %}
+				        				   {% if url_name == 'signup' %}invisible{% endif %}"    
+				        	href="{% url 'index' %}">Input Errors</a>
+				        <a class="nav-link {% if url_name == 'errors' %}active{% endif %}
+				        				   {% if url_name == 'login' %}invisible{% endif %}
+				        				   {% if url_name == 'logout' %}invisible{% endif %}
+				        				   {% if url_name == 'signup' %}invisible{% endif %}" 
+				        	href="/tek84Troubleshoot/errors">Errors</a>
+						<div class="btn-group dropstart position-absolute top-0 end-0 m-4 
+							{% if url_name == 'login' %}invisible{% endif %}
+							{% if url_name == 'logout' %}invisible{% endif %}
+							{% if url_name == 'signup' %}invisible{% endif %}">
+							<button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+						    	<img src="{% static 'account_circle1.svg' %}"> Hey, {{ request.user}}
+						  	</button>
+						  	<ul class="dropdown-menu dropdown-menu-dark">
+						  		<li><a class="dropdown-item " href="{% url 'password_change' %}">Change Password</a></li>
+						  		<li><hr class="dropdown-divider"></li>
+							    <li><a class="dropdown-item " href="{% url 'logout' %}">Log Out</a></li>
+						  	</ul>
+						</div>
+			      	</div>
+			    </div>
+			    {% endwith %}
+		  	</div>
 		</nav>
 	</div>
 	
@@ -65,7 +82,7 @@
 <div class="footer bg-dark text-center text-lg-start text-light pt-1 mt-5">
 	<!-- Copyright -->
 	<div class="text-center p-3">
-	© 2022 Marc Dy
+	© 2022 -- Created by: <strong>Marc Dy</strong>
 	</div>
 	<!-- Copyright -->
 	</div>

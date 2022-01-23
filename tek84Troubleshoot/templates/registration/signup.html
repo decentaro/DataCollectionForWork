@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+
+{% if form.errors %}
+    <div class="container mb-5 text-center alert alert-danger alert-dismissible fade show" role="alert"> 
+        Something wrong happened. Please try again.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
+
+
+
+<div class="container-fluid" id="index-border" style="width: 50%;">
+    <form method="post" action="{% url 'signup' %}">
+    {% csrf_token %}
+        <h1 class="mb-5">CREATE NEW ACCOUNT</h1>
+        <label>Username</label>
+        <br>
+        {{ form.username }}
+        <br>
+     	<label>Email address</label>
+        <br>
+        {{ form.email }}
+        <br>
+        <label>First Name</label>
+        <br>
+        {{ form.first_name }}
+        <br>
+        <label>Last Name</label>
+        <br>
+        {{ form.last_name }}
+        <br>
+        <label>Password</label>
+        <br>
+        {{ form.password1}}
+        <div>
+	  		<table>
+	  			<td class="form-text">
+	  				<li >
+	  					Your password can't be too similar to your other personal information.
+	  				</li>
+	  				<li>
+	  					Your password must contain at least 8 characters.
+	  				</li>
+	  				<li>
+	  					Your password must contain symbols.
+	  				</li>
+	  				<li>
+	  					Your password can't be entirely numeric.
+	  				</li>
+	  			</td>
+	  		</table>
+		</div>
+        <br>
+        <label>Confirm Password</label>
+        <br>
+        {{ form.password2 }}
+        <br>
+
+
+
+
+
+
+          
+        <input type="submit" value="Create Account" class="btn btn-outline-primary mb-5">
+        <input type="hidden" name="next" value="{% url 'index' %}">
+    </form>
+</div>
+
+
+{% endblock content %}

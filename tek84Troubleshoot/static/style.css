@@ -1,6 +1,5 @@
 #index-border {
   border-radius: 5px;
-  border-color: black;
   border-width: thin;
   text-align: center;
   box-shadow:
@@ -17,8 +16,4 @@ h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: bolder;
 }
-
-
-
-
 

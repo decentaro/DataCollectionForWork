@@ -1,19 +1,18 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
+from django.contrib import admin
 
-from django import forms
 
 # Create your models here.
 
+class Employee(models.Model):
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	position = models.CharField(max_length=100)
+
+
 
 class InputError(models.Model):
-
-	ELECTRICAL = 'Electrical'
-	BAY1 = 'B1'
-	BAY2 = 'B2'
-	BAY3 = 'B3'
-	BAY4 = 'B4'
-	BAY5 = 'B5'
 
 	BAYS = [
 		('ELECTRICAL', 'Electrical'),
@@ -25,18 +24,10 @@ class InputError(models.Model):
 	]
 
 
-	AC = 'AC'
-	CPU = 'CPU'
-	BASES = 'BS'
-	VERTICALS = 'VR'
-	CARM = 'CA'
-	ATP = 'AP'
-	SKINS = 'SK'
-	TOPHAT = 'TP'
-
 	GENERAL_DESCRIPTION_OF_FAILURE = [
 		('AC', 'AC'),
 		('CPU', 'CPU'),
+		('KIOSK', 'KIOSK'),
 		('BASES', 'Bases'),
 		('VERTICALS', 'Vertical'),
 		('CARM', 'C-Arm'),
@@ -45,10 +36,14 @@ class InputError(models.Model):
 		('TOPHAT', 'Top Hat')
 	]
 
+	
 	bays = models.CharField(max_length=10, choices=BAYS)
 	general_description_of_failure = models.CharField(max_length=9, 
 												   choices=GENERAL_DESCRIPTION_OF_FAILURE)
 	title_of_error = models.CharField(max_length=100)
 	fix_of_error = models.TextField()
 	date_posted = models.DateTimeField(auto_now = True)
+	employee = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+
+
 

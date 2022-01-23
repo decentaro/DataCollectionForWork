@@ -2,64 +2,43 @@
 {% block content %}
 
 
+<div class="container-fluid" id="index-border" style="width: 50%;">
+	<h1 class="mb-5">INPUT ERROR</h1>
+	<hr>
+	<div class="mb-3">
+		<form action="" method="post">
+			{% csrf_token %}
 
+			<label>Choose bay:</label>
+			<br>
+			{{form.bays}}
+			<br><br>
 
+			<label>Choose general location of error:</label>
+			<br>
+			{{form.general_description_of_failure}}
+			<br><br>
 
-<div class="container">
+			<label>Brief description of error:</label>
+			<br>
+			<label class="text-muted">Eg. Right stepper motor not moving.</label>
+			<br>
+			{{form.title_of_error}}
+			<br><br>
 
-	<!-- First Row-->
-  	<div class="row">
-
-  		<!-- First Column-->
-    	<div class="col">
-    	</div>
-
-    	<!-- Second Column-->
-    	<div class="col">
-      		<div class=" container-fluid" style="width: 500px;" id="index-border">
-			<h1 class="p-5">Input Error</h1>
-			<hr>
-			<div class="mb-3">
-				<form action="" method="post">
-					{% csrf_token %}
-
-					<label>Choose bay:</label>
-					<br>
-					{{form.bays}}
-					<br><br>
-
-					<label>Choose general location of error:</label>
-					<br>
-					{{form.general_description_of_failure}}
-					<br><br>
-
-					<label>Brief description of error:</label>
-					<br>
-					<label class="text-muted">Eg. Right stepper motor not moving.</label>
-					<br>
-					{{form.title_of_error}}
-					<br><br>
-
-					<label>Steps to fix the error:</label>
-					<br>
-					<label class="text-muted">*Press enter for a newline or return for mobile.</label>
-					<label class="text-muted">*Lists all the steps you did prior to fixing the error.</label>
-					<label class="text-muted">*Add asterisk(*) if a certain step fixed the error.</label>
-					<br>
-					{{form.fix_of_error}}
-					<br><br>
-
-					<input type="submit" value="Submit" class="btn btn-outline-primary btn-lg">
-				</form>
-			</div>
-		</div>
+			<label>Steps to fix the error:</label>
+			<br>
+			<label class="text-muted">*Press enter for a newline or return for mobile.</label>
+			<br>
+			<label class="text-muted">*Lists all the steps you did prior to fixing the error.</label>
+			<br>
+			<label class="text-muted">*Add asterisk(*) if a certain step fixed the error.</label>
+			<br>
+			{{form.fix_of_error}}
+			<br><br>
+			<input type="submit" value="Submit" class="btn btn-outline-primary btn-lg mb-5">
+		</form>
 	</div>
-
-		<!-- Third Column-->
-		<div class="col">
-    	</div>
 </div>
-
-
 	
 {% endblock content %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if form.errors %}
+    <div class="container mb-5 text-center alert alert-danger alert-dismissible fade show" role="alert"> 
+        Your username and password didn't match. Please try again.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
+
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <div class="container mb-5 text-center alert alert-danger alert-dismissible fade show" role="alert"> 
+        Your account doesn't have access to this page. To proceed,please login with an account that has access.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+{% endif %}
+
+
+<div class="container-fluid" id="index-border" style="width: 80%;">
+    <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+        <h1 class="p-5">LOG IN</h1>
+        <label>Username</label>
+        <br>
+        {{ form.username }}
+        <br><br>
+        <label>Password</label>
+        <br>
+        {{ form.password }}
+        <br><br>
+        <div class="d-grid gap-2 col-3 mx-auto">
+            <input type="submit" value="Login" class="btn btn-outline-primary btn-lg mb-5">
+            <input type="hidden" name="next" value="{% url 'index' %}">
+        </div>
+        <a href="{% url 'password_reset' %}" class="btn disabled">Forgot Password?</a>
+        <br>
+        <hr>
+        <br>
+    </form>
+    <a class="btn btn-outline-success mb-5" href="{% url 'signup' %}" role="button">Create new Account</a>
+</div>
+
+  
+
+
+
+
+{% endblock content %}
