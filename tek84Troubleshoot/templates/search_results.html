@@ -16,7 +16,7 @@
                                 <p class="card-text"><pre>{{ items.fix_of_error }}</pre></p>   <!-- PRE tag gives a newline every                                                           shift enter on the textarea in index.html --> 
                             </div>
                             <div class="card-footer bg-transparent">
-                                <label>Reported by: <strong>{{ items.employee }}</strong></label>
+                                <label>Reported by: <strong>{{ items.employee.first_name }}</strong></label>
                                 <br>
                                 {{ items.date_posted }}
                             </div>
