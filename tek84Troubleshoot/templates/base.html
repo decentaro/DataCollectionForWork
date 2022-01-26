@@ -26,7 +26,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet"> 
 
-	<title>B1-B5 Data Collection</title>
+	<title>{% block title %} {% endblock %}</title>
 	
 </head>
 <body>
@@ -54,11 +54,12 @@
 				        	href="/tek84Troubleshoot/errors">Errors</a>
 
 				   <!-- WIP SEARCH BAR -->     	
-				        <form class="d-flex 
+				        <form action="{% url 'search_results' %}" method="get" class="d-flex
 				        	{% if url_name == 'login' %}invisible{% endif %}
 							{% if url_name == 'logout' %}invisible{% endif %}
-							{% if url_name == 'signup' %}invisible{% endif %}">
-				      		<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+							{% if url_name == 'signup' %}invisible{% endif %}
+							{% if url_name == 'index' %}invisible{% endif %}">
+				      		<input name="q" class="form-control me-2 " type="search" placeholder="Search">
 					      	<button class="btn btn-outline-dark " type="submit">Search</button>
 					    </form>
 
@@ -68,7 +69,7 @@
 							{% if url_name == 'logout' %}invisible{% endif %}
 							{% if url_name == 'signup' %}invisible{% endif %}">
 							<button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-						    	<img src="{% static 'account_circle1.svg' %}"> Hey, {{ request.user}}
+						    	<img src="{% static 'account_circle1.svg' %}"> Hey, {{ request.user.first_name}}
 						  	</button>
 						  	<ul class="dropdown-menu dropdown-menu-dark">
 						  		<li><a class="dropdown-item " href="{% url 'password_change' %}">Change Password</a></li>
@@ -93,7 +94,7 @@
 <div class="footer bg-dark text-center text-lg-start text-light pt-1 mt-5">
 	<!-- Copyright -->
 	<div class="text-center p-3">
-	© 2022 -- Created by: <strong>Marc Dy</strong>
+	© 2022 -- <strong>Marc Dy</strong>
 	</div>
 	<!-- Copyright -->
 	</div>

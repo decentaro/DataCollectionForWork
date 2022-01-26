@@ -6,12 +6,17 @@ from .models import InputError, Employee
 from django.contrib import messages
 from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView, PasswordChangeDoneView, PasswordResetView, PasswordResetDoneView,PasswordResetConfirmView,PasswordResetCompleteView
 from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import ListView
 
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 
 
 from django.contrib.auth.models import User
+
+
+from django.db.models import Q   # SEARCH BAR
+
 
 
 
@@ -51,9 +56,11 @@ class EmployeePasswordChange(PasswordChangeView):
 
 
 
+
 # Password Change Done Page
 class EmployeePasswordChangeDone(PasswordChangeDoneView):
 	template_name = 'registration/password_change_done.html'
+
 
 
 # Password Reset Page
@@ -61,9 +68,11 @@ class EmployeePasswordReset(PasswordResetView):
 	template_name = 'registration/password_reset_form.html'
 
 
+
 # Password Reset Done Page
 class EmployeePasswordResetDone(PasswordResetDoneView):
 	template_name = 'registration/password_reset_done.html'
+
 
 
 # Password Reset Confirm Page
@@ -71,11 +80,23 @@ class EmployeePasswordConfirm(PasswordResetConfirmView):
 	template_name = 'registration/password_reset_confirm.html'
 
 
+
 # Password Reset Complete Page
 class EmployeePasswordComplete(PasswordResetCompleteView):
 	template_name = 'registration/password_reset_complete.html'
 
 
+
+# Search Results Page
+class SearchResultsView(ListView):
+	model = InputError
+	template_name = 'search_results.html'
+	
+
+	def get_queryset(self):
+		query = self.request.GET.get('q') # q --> id name of the search input
+		object_list = InputError.objects.filter(Q(title_of_error__startswith=query)) 
+		return object_list
 
 
 
@@ -92,8 +113,8 @@ def index(request):
 				instance = form.save(commit=False)
 				instance.employee = request.user
 				instance.save()
-				return redirect('/tek84Troubleshoot/errors')
 				messages.success(request, 'Success!')
+				return redirect('/tek84Troubleshoot/errors')
 			else:
 				messages.error(request, 'Error!')
 				return redirect('/tek84Troubleshoot/index')

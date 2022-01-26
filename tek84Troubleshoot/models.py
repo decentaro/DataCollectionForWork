@@ -43,7 +43,7 @@ class InputError(models.Model):
 	title_of_error = models.CharField(max_length=100)
 	fix_of_error = models.TextField()
 	date_posted = models.DateTimeField(auto_now = True)
-	employee = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+	employee = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
 
 

@@ -16,7 +16,7 @@ urlpatterns = [
 	path('accounts/password_change/done/', views.EmployeePasswordChangeDone.as_view
 		(template_name='registration/password_change_done.html'), name='password_change_done'),
 	path('accounts/signup/', views.sign_up, name='signup'),
-
+	path('search_results/', views.SearchResultsView.as_view(), name='search_results'),
 
 
 # Needs to work on these paths
@@ -33,6 +33,11 @@ urlpatterns = [
 	path('accounts/password_reset_complete/', views.EmployeePasswordComplete.as_view
 		(template_name='registration/password_reset_complete.html'), name='password_reset_complete'),
 
+
+
+
+
+	
 
 
 	
