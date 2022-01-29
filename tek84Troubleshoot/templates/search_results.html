@@ -8,26 +8,26 @@
 <div class="container-fluid mt-5 mb-5">
     <div class="row-1">
         {% for items in object_list %}
+            <h1 class="mb-5">SEARCH RESULTS FOUND</h1>
             <div class="col-15 container">
-                        <div class="card border-secondary mb-3">
-                            <div class="card-body">
-                                <h4 class="card-title">{{ items.title_of_error }}</h4>
-                                <hr style="border: 1px solid black">
-                                <p class="card-text"><pre>{{ items.fix_of_error }}</pre></p>   <!-- PRE tag gives a newline every                                                           shift enter on the textarea in index.html --> 
-                            </div>
-                            <div class="card-footer bg-transparent">
-                                <label>Reported by: <strong>{{ items.employee }}</strong></label>
-                                <br>
-                                {{ items.date_posted }}
-                            </div>
-                        </div>
+                <div class="card border-secondary mb-3">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ items.title_of_error }}</h4>
+                        <hr style="border: 1px solid black">
+                        <p class="card-text"><pre>{{ items.fix_of_error }}</pre></p>   <!-- PRE tag gives a newline every                                                           shift enter on the textarea in index.html --> 
                     </div>
+                    <div class="card-footer bg-transparent">
+                        <label>Reported by: <strong>{{ items.employee.first_name }}</strong></label>
+                        <br>
+                        {{ items.date_posted }}
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <h1 class="mb-5">NO SEARCH RESULTS FOUND</h1>
         {% endfor %}
     </div>
 </div>
-
-
-
 
 
 

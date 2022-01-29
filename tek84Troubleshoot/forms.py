@@ -55,6 +55,17 @@ class EmployeeForm(UserCreationForm):
     )
 
 
+
+	def clean_username(self):
+		if User.objects.filter(username=self.cleaned_data['username']).exists():
+			raise forms.ValidationError("The given username has already been used. Please try another one.")
+		return self.cleaned_data['username']
+
+	def clean_email(self):
+		if User.objects.filter(email=self.cleaned_data['email']).exists():
+			raise forms.ValidationError("The given email address has already been used. Please try another one.")
+		return self.cleaned_data['email']
+
 	class Meta:
 		model = User
 		fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2')

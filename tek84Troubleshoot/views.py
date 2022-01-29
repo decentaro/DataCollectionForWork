@@ -30,6 +30,7 @@ def sign_up(request):
 			user.save()
 			raw_password = form.cleaned_data.get('password1')
 			user = authenticate(username=user.username, password=raw_password)
+			messages.success(request, 'User account was created successfully!')
 			login(request, user)
 			return redirect('/tek84Troubleshoot/')
 	else:
@@ -96,6 +97,7 @@ class SearchResultsView(ListView):
 	def get_queryset(self):
 		query = self.request.GET.get('q') # q --> id name of the search input
 		object_list = InputError.objects.filter(Q(title_of_error__startswith=query)) 
+		print(object_list)
 		return object_list
 
 

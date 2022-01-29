@@ -4,7 +4,7 @@
 
 
 
-<!-- Error Alert for Email Address -->
+<!-- Error Alert for Invalid Email Address and Already registered Email -->
 
 {% for error in form.email.errors %}
     <div class="container mb-5 text-center alert alert-danger alert-dismissible fade show" role="alert"> 
@@ -14,13 +14,25 @@
 {% endfor %}
 
 
-<!-- Error Alert for Password1 & Password2 -->
+<!-- Error Alert for Unmatch Password1 & Password2 -->
 {% for error in form.password2.errors %}
     <div class="container mb-5 text-center alert alert-danger alert-dismissible fade show" role="alert"> 
         {{ error}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 {% endfor %}
+
+
+<!-- Error Alert for Already registered Username -->
+{% for error in form.username.errors %}
+    <div class="container mb-5 text-center alert alert-danger alert-dismissible fade show" role="alert"> 
+        {{ error}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+
+
+
 
 
 <div class="container-fluid" id="index-border" style="width: 50%;">
