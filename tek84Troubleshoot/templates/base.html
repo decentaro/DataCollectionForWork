@@ -45,12 +45,25 @@
 				        <a class="nav-link {% if url_name == 'index' %}active{% endif %} 
 				        				   {% if url_name == 'login' %}invisible{% endif %}
 				        				   {% if url_name == 'logout' %}invisible{% endif %}
-				        				   {% if url_name == 'signup' %}invisible{% endif %}"    
+				        				   {% if url_name == 'signup' %}invisible{% endif %}
+				        				   {% if url_name == 'password_reset' %}invisible{% endif %}
+				        				   {% if url_name == 'password_reset_done' %}invisible{% endif %}
+				        				   {% if url_name == 'password_reset_confirm' %}invisible{% endif %}
+				        				   {% if url_name == 'password_reset_complete' %}invisible{% endif %}
+				        				   {% if url_name == 'password_change' %}invisible{% endif %}
+				        				   {% if url_name == 'password_change_done' %}invisible{% endif %}"    
 				        	href="{% url 'index' %}">Input Errors</a>
 				        <a class="nav-link {% if url_name == 'errors' %}active{% endif %}
 				        				   {% if url_name == 'login' %}invisible{% endif %}
 				        				   {% if url_name == 'logout' %}invisible{% endif %}
-				        				   {% if url_name == 'signup' %}invisible{% endif %}" 
+				        				   {% if url_name == 'signup' %}invisible{% endif %}
+				        				   {% if url_name == 'password_reset' %}invisible{% endif %}
+				        				   {% if url_name == 'password_reset_done' %}invisible{% endif %}
+				        				   {% if url_name == 'password_reset_confirm' %}invisible{% endif %}
+				        				   {% if url_name == 'password_reset_complete' %}invisible{% endif %}
+				        				   {% if url_name == 'password_reset_complete' %}invisible{% endif %}
+				        				   {% if url_name == 'password_change' %}invisible{% endif %}
+				        				   {% if url_name == 'password_change_done' %}invisible{% endif %}" 
 				        	href="/tek84Troubleshoot/errors">Errors</a>
 
 				   <!-- WIP SEARCH BAR -->     	
@@ -58,7 +71,14 @@
 				        	{% if url_name == 'login' %}invisible{% endif %}
 							{% if url_name == 'logout' %}invisible{% endif %}
 							{% if url_name == 'signup' %}invisible{% endif %}
-							{% if url_name == 'index' %}invisible{% endif %}">
+							{% if url_name == 'index' %}invisible{% endif %}
+							{% if url_name == 'password_reset' %}invisible{% endif %}
+        				   	{% if url_name == 'password_reset_done' %}invisible{% endif %}
+        				   	{% if url_name == 'password_reset_confirm' %}invisible{% endif %}
+        				   	{% if url_name == 'password_reset_complete' %}invisible{% endif %}
+        				   	{% if url_name == 'password_reset_complete' %}invisible{% endif %}
+        				   	{% if url_name == 'password_change' %}invisible{% endif %}
+        				   	{% if url_name == 'password_change_done' %}invisible{% endif %}">
 				      		<input name="q" class="form-control me-2 " type="search" placeholder="Search">
 					      	<button class="btn btn-outline-dark " type="submit">Search</button>
 					    </form>
@@ -67,7 +87,14 @@
 						<div class="btn-group dropstart position-absolute top-1 end-0 mt-1 mr-1 p-1  
 							{% if url_name == 'login' %}invisible{% endif %}
 							{% if url_name == 'logout' %}invisible{% endif %}
-							{% if url_name == 'signup' %}invisible{% endif %}">
+							{% if url_name == 'signup' %}invisible{% endif %}
+							{% if url_name == 'password_reset' %}invisible{% endif %}
+        				   	{% if url_name == 'password_reset_done' %}invisible{% endif %}
+        				   	{% if url_name == 'password_reset_confirm' %}invisible{% endif %}
+        				   	{% if url_name == 'password_reset_complete' %}invisible{% endif %}
+        				   	{% if url_name == 'password_reset_complete' %}invisible{% endif %}
+        				   	{% if url_name == 'password_change' %}invisible{% endif %}
+        				   	{% if url_name == 'password_change_done' %}invisible{% endif %}">
 							<button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 						    	<img src="{% static 'account_circle1.svg' %}"> Hey, {{ request.user.first_name}}
 						  	</button>

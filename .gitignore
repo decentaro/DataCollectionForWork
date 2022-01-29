@@ -1,2 +1,4 @@
-/tek84/db.sqlite3
-/tek84/tek84/settings.py
+db.sqlite3
+settings.py
+.env
+.DS_Store

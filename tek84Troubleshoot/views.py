@@ -53,7 +53,7 @@ class EmployeeLogout(LogoutView):
 
 # Password Change Page
 class EmployeePasswordChange(PasswordChangeView):
-	template_name = 'registration/password_change_form.html'
+	template_name = 'accounts/password_change_form.html'
 
 
 
@@ -66,25 +66,25 @@ class EmployeePasswordChangeDone(PasswordChangeDoneView):
 
 # Password Reset Page
 class EmployeePasswordReset(PasswordResetView):
-	template_name = 'registration/password_reset_form.html'
+	template_name = 'accounts/password_reset_form.html'
 
 
 
 # Password Reset Done Page
 class EmployeePasswordResetDone(PasswordResetDoneView):
-	template_name = 'registration/password_reset_done.html'
+	template_name = 'accounts/password_reset_done.html'
 
 
 
 # Password Reset Confirm Page
 class EmployeePasswordConfirm(PasswordResetConfirmView):
-	template_name = 'registration/password_reset_confirm.html'
+	template_name = 'accounts/password_reset_confirm.html'
 
 
 
 # Password Reset Complete Page
 class EmployeePasswordComplete(PasswordResetCompleteView):
-	template_name = 'registration/password_reset_complete.html'
+	template_name = 'accounts/password_reset_complete.html'
 
 
 
@@ -96,8 +96,7 @@ class SearchResultsView(ListView):
 
 	def get_queryset(self):
 		query = self.request.GET.get('q') # q --> id name of the search input
-		object_list = InputError.objects.filter(Q(title_of_error__startswith=query)) 
-		print(object_list)
+		object_list = InputError.objects.filter(Q(title_of_error__contains=query)) 
 		return object_list
 
 
