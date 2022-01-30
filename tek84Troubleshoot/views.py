@@ -123,8 +123,7 @@ def index(request):
 	context = {'form':form}
 	return render(request, 'index.html', context)
 
-
-
+from django.core.paginator import Paginator
 
 # Display Errors Page
 def errors(request):
@@ -136,13 +135,58 @@ def errors(request):
 	querysetBay4 = InputError.objects.all().filter(bays = 'BAY4').order_by('-date_posted')
 	querysetBay5 = InputError.objects.all().filter(bays = 'BAY5').order_by('-date_posted')
 
+
+
+	# ELECTRICAL
+	paginator0= Paginator(querysetBay0, 2)
+	page0 = request.GET.get('page0')
+	queryBay0 = paginator0.get_page(page0)
+
+
+	# BAY 1
+	paginator1= Paginator(querysetBay1, 2)
+	page1 = request.GET.get('page1')
+	queryBay1 = paginator1.get_page(page1)
+
+
+	# BAY 2
+	paginator2 = Paginator(querysetBay2, 2)
+	page2 = request.GET.get('page2')
+	queryBay2 = paginator2.get_page(page2)
+
+
+	# BAY 3
+	paginator3 = Paginator(querysetBay3, 2)
+	page3 = request.GET.get('page3')
+	queryBay3 = paginator3.get_page(page3)
+
+
+	# BAY 4
+	paginator4 = Paginator(querysetBay4, 2)
+	page4 = request.GET.get('page4')
+	queryBay4 = paginator4.get_page(page4)
+
+
+	# BAY 5
+	paginator5 = Paginator(querysetBay5, 2)
+	page5 = request.GET.get('page5')
+	queryBay5 = paginator5.get_page(page5)
+
+
+	
 	context = {
-		'querysetBay0': querysetBay0,
-		'querysetBay1': querysetBay1,
-		'querysetBay2': querysetBay2,
-		'querysetBay3': querysetBay3,
-		'querysetBay4': querysetBay4,
-		'querysetBay5': querysetBay5,
+		#'querysetBay0': querysetBay0,
+		#'querysetBay1': querysetBay1,
+		#'querysetBay2': querysetBay2,
+		#'querysetBay3': querysetBay3,
+		#'querysetBay4': querysetBay4,
+		#'querysetBay5': querysetBay5,
+		'queryBay0': queryBay0,
+		'queryBay1': queryBay1,
+		'queryBay2': queryBay2,
+		'queryBay3': queryBay3,
+		'queryBay4': queryBay4,
+		'queryBay5': queryBay5,
 	}
 	
 	if not request.user.is_authenticated:

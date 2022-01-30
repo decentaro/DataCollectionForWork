@@ -55,6 +55,7 @@ class EmployeeForm(UserCreationForm):
     )
 
 
+	# Custom Validators for the required fields.
 
 	def clean_username(self):
 		if User.objects.filter(username=self.cleaned_data['username']).exists():
