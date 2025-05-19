@@ -4,7 +4,7 @@ A Django web application for collecting and managing data errors, specifically f
 
 ---
 
-## 🚀 Features
+## Features
 
 - Collect and manage data errors for:
   - Electrical
@@ -15,21 +15,22 @@ A Django web application for collecting and managing data errors, specifically f
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
-- **Django** - Backend framework for efficient data management.
-- **Bootstrap** - Responsive front-end styling.
-- **HTML** - Structure and content presentation.
-- **CSS** - Styling and layout.
-- **Python** - Core logic and backend development.
+- **Django**
+- **Bootstrap** 
+- **HTML**
+- **CSS**
+- **Python** 
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 1. Clone the repository:
 
-git clone https://github.com/yourusername/data-error-collection.git 
+```bash
+git clone https://github.com/decentaro/data-error-collection.git 
 cd data-error-collection
 
 2. Install dependencies:
@@ -43,6 +44,7 @@ python manage.py migrate
 4. Start the development server:
 
 python manage.py runserver
+```
 
 5. Open the web app in your browser at:
 
@@ -51,7 +53,7 @@ http://127.0.0.1:8000
 
 ---
 
-## 📝 Usage
+## Usage
 
 - Navigate to the appropriate section (Electrical, Bay1 - Bay5) to record errors.
 - View, edit, or delete existing error reports.
